@@ -17,19 +17,21 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+        <a class="nav-link" href="{{ url_for('home') }}">Página Principal</a>
       </li>
         {% if not logged_in: %}
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        <a class="nav-link" href="{{ url_for('register') }}">Registrar</a>
       </li>
         {% endif %}
-<li class="nav-item">
+        {% if logged_in %}
+      <li class="nav-item">
         <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
       </li>
+        {% endif %}
     </ul>
 
 

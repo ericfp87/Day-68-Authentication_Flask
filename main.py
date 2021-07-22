@@ -98,10 +98,12 @@ def secrets():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    flash("Sessão Encerrada!")
+    return redirect(url_for('login'))
 
 
 @app.route('/download')
+@login_required
 def download():
     return send_from_directory("static",
                                filename="files/cheat_sheet.pdf", as_attachment=True)
